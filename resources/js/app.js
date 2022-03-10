@@ -4,15 +4,12 @@
  * building robust, powerful web applications using React + Laravel.
  */
 
+
+const {default: GoldenRoutes} = require('./Routes/GoldenRoutes');
+
 require('./bootstrap');
 
 /**
- * React Components
+ * Load React Components via router
  */
-
-require('./components/Home');
-require('./components/Entry');
-require('./components/Winner');
-require('./components/NoLuck');
-require('./components/WinnerList');
-require('./components/Footer');
+require('./Routes/GolderRouter');

@@ -121,6 +121,7 @@ footer.footer-main-area-wrap {
 
 label.form-check-label {
     color: #535353;
+    background-color: #f8fafc;
 }
 
 label.form-control.compate-page {
@@ -201,4 +202,8 @@ section.banner-main-area.entry-page > img {
 section.banner-main-area.entry-page {
     background-image: unset;
     height: unset;
+}
+
+a {
+    text-decoration: none !important;
 }

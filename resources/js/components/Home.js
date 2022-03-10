@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {Link} from 'react-router-dom';
 import Footer from "./Footer";
 
 
@@ -16,7 +16,7 @@ function Home() {
                         Purchase any TEMPTATIONS™ or SCHMACKOS™ product and upload your receipt for the chance to WIN 1
                         of 10 x $1000 Digital Visa Gift Cards.
                     </h4>
-                    <button>Enter</button>
+                    <Link to={'/entry'}><button>Enter</button></Link>
                     <p>
                         *T&Cs apply, see www.masterfoods.com.au/competition. Open to AU res 18+. Starts 12:01am AEST
                         16/03/2022. Ends 11:59pm AEST 26/04/2022. Retain receipt/s. To enter promotion, purchase
@@ -35,7 +35,3 @@ function Home() {
 }
 
 export default Home;
-
-if (document.getElementById('app')) {
-    ReactDOM.render(<Home/>, document.getElementById('app'));
-}

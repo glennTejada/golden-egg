@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/{reactRoutes}', function () {
     return view('welcome');
-});
+})->where('reactRoutes', '|entry|winner|good-crack|winner-list');
 
-Route::get('/admin', [AdminController::class,'index']);
+Route::get('/admin', [AdminController::class, 'index']);

@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from "./Footer";
+import {Link} from "react-router-dom";
 
 function Entry(props) {
     return (
@@ -168,7 +169,7 @@ function Entry(props) {
                                         </div>
                                     </div>
                                 </div>
-                                <button>Submit</button>
+                                <Link to={'/winner'}><button>Submit</button></Link>
                             </form>
                             <p className="text-center">
                                 *T&Cs apply, see www.masterfoods.com.au/competition. Open to AU
