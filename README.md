@@ -9,3 +9,10 @@
    
 ### Run API
 `php artisan serve`
+<hr>
+
+### Setup Frontend
+1. Install dependencies: `npm install`
+2. Compile frontend for development: `npm run dev`  
+or,  
+Compile frontend for production: `npm run prod`
