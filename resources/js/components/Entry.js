@@ -39,12 +39,14 @@ function Entry(props) {
                                     </div>
                                     <div className="col-md-6">
                                         <div className="input-single-form-item">
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                id=""
-                                                placeholder="Last Name*"
-                                            />
+                                            <div className="form-group">
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id=""
+                                                    placeholder="Last Name*"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
 
@@ -169,7 +171,9 @@ function Entry(props) {
                                         </div>
                                     </div>
                                 </div>
-                                <Link to={'/winner'}><button>Submit</button></Link>
+                                <Link to={'/winner'}>
+                                    <button>Submit</button>
+                                </Link>
                             </form>
                             <p className="text-center">
                                 *T&Cs apply, see www.masterfoods.com.au/competition. Open to AU
