@@ -28,6 +28,8 @@ class User extends Authenticatable
         'age',
         'proof',
         'affiliates',
+        'transectionId',
+        'isWinner',
     ];
 
     /**

@@ -19,3 +19,4 @@ Route::get('/{reactRoutes}', function () {
 })->where('reactRoutes', '|entry|winner|good-crack|winner-list');
 
 Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin/winner-list', [AdminController::class, 'list'])->name('winnerList');

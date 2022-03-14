@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('age');
             $table->string('proof');
             $table->string('affiliates');
+            $table->string('transectionId')->unique();
+            $table->integer('isWinner')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
