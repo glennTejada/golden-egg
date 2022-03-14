@@ -21,6 +21,7 @@
                             <th>Product</th>
                             <th>Receipt</th>
                             <th>Email</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -33,6 +34,7 @@
                             <td>{{$winner->product}}</td>
                             <td>{{$winner->receipt}}</td>
                             <td>{{$winner->email}}</td>
+                            <td><a href="{{ route('delete',['id'=>$winner->id]) }}" class="btn btn-danger">Delete</a></td>
                         </tr>
                         @endforeach
                         </tbody>

@@ -20,3 +20,5 @@ Route::get('/{reactRoutes}', function () {
 
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/winner-list', [AdminController::class, 'list'])->name('winnerList');
+Route::get('/delete/{id}/', [AdminController::class, 'delete'])
+    ->name('delete');

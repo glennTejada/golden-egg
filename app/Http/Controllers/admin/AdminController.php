@@ -17,4 +17,9 @@ class AdminController extends Controller
         $winners = User::all();
         return view('admin.list',compact('winners'));
     }
+
+    public function delete($id){
+        User::find($id)->delete();
+        return redirect()->back();
+    }
 }
