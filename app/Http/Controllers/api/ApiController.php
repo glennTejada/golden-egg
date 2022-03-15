@@ -29,6 +29,7 @@ class ApiController extends Controller
         $transectionIdValidation = User::where('transectionId',$transectionId)->first();
 
         if($transectionIdValidation != null)
+            // todo: this should be a error response, right now axios is catching it as success response
             return response()->json(
                 [
                     "message" => "The given data was invalid.",
@@ -47,7 +48,7 @@ class ApiController extends Controller
                 'proof' => $request->proof,
                 'affiliates' => $request->affiliates,
                 'isWinner' => 1,
-                "transectionId" => $transectionId,
+                "transectionId" => $transectionId, // todo: if you fix this property name, kindly update front end "entry.js" file too
             ]);
             $data = [
                 "apiKey" => "61fa033a-c163-4d57-9a84-9952ec525812",

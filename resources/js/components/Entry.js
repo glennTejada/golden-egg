@@ -14,6 +14,7 @@ function Entry(props) {
         product: '',
         receipt: '',
         email: '',
+        transectionId: '',
         age: false,
         proof: false,
         affiliates: false,
@@ -32,7 +33,7 @@ function Entry(props) {
         const {name, files} = e.target;
 
         setFormData(prevState => ({
-            ...prevState, receipt: files[0].name
+            ...prevState, [name]: files[0]
         }));
     };
 
@@ -48,7 +49,11 @@ function Entry(props) {
         }
         toast.info("Submitting Information...");
 
-        axios.post('/api/entry', formData)
+        let formDataToSubmit = new FormData();
+        for (let key in formData) {
+            formDataToSubmit.append(key, formData[key]);
+        }
+        axios.post('/api/entry', formDataToSubmit)
             .then(res => {
                 toast.dismiss();
                 // todo: more status code 2?
@@ -65,7 +70,18 @@ function Entry(props) {
             })
             .catch(err => {
                 toast.dismiss();
-                toast.error("Error submitting information");
+
+                if (err.response.hasOwnProperty('data') && err.response.data.hasOwnProperty('errors')) {
+                    // if status code is 422 show type error, otherwise show error message
+                    if (err.response.status === 422) {
+                        toast.error(`The ${Object.keys(err.response.data.errors)[0]} was invalid.`);
+                    } else {
+                        toast.error(err.response.data.message);
+                    }
+                }else {
+                    toast.error("Unknown error occurred");
+                }
+
             });
 
     };
@@ -209,6 +225,22 @@ function Entry(props) {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="col-md-6">
+                                    <div className="input-single-form-item">
+                                        <div className="form-group">
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="transectionId"
+                                                name='transectionId'
+                                                aria-describedby="transactionIdHelp"
+                                                placeholder="Enter Transaction Id*"
+                                                required
+                                                onChange={(e) => setFormData({...formData, transectionId: e.target.value})}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div className="col-md-12">
                                 <div className="input-single-form-item">
@@ -299,5 +331,3 @@ function Entry(props) {
 }
 
 export default Entry;
-
-
