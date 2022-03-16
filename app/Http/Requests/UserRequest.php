@@ -34,6 +34,7 @@ class UserRequest extends FormRequest
             'age' => 'required',
             'proof' => 'required',
             'affiliates' => 'required',
+            'transactionId' => 'required',
         ];
     }
 }

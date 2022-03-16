@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/entry',[ApiController::class,'entry']);
 Route::get('/status',[ApiController::class,'status']);
+Route::get('/mail',[ApiController::class,'send_email']);

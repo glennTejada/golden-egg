@@ -14,7 +14,7 @@ class ApiController extends Controller
 {
     public function entry(UserRequest $request){
 
-        /*$firstname = preg_replace('/\s+/', '', $request->firstname);
+        $firstname = preg_replace('/\s+/', '', $request->firstname);
         $titleWithOutRegExpression = str_replace( array( '\'', '!','”','#','$','%','&','’','(', '*','+',',',
             '-','.','/',':',';','<','=','>','?','@','[',']','^','_','`','{','|','}','~'), '', $firstname);
         $imageName = time() . '-' . $titleWithOutRegExpression . '.' . $request->receipt->extension();
@@ -23,17 +23,15 @@ class ApiController extends Controller
 
         $text = (new TesseractOCR($path))
             ->run();
-        return response()->json($text);*/
 
-        $transectionId = rand(0,1);
-        $transectionIdValidation = User::where('transectionId',$transectionId)->first();
+        $transactionId = rand(0,1);
+        $transactionIdValidation = User::where('transactionId',$transactionId)->first();
 
-        if($transectionIdValidation != null)
-            // todo: this should be a error response, right now axios is catching it as success response
+        if($transactionIdValidation != null)
             return response()->json(
                 [
                     "message" => "The given data was invalid.",
-                    'errors' => ['transectionId' =>['Transaction Id already used']]
+                    'errors' => ['transactionId' =>['Transaction Id already used']]
                 ]);
         else {
             User::create([
@@ -42,17 +40,17 @@ class ApiController extends Controller
                 'suburb' => $request->suburb,
                 'number' => $request->number,
                 'product' => $request->product,
-                'receipt' => $request->receipt,
+                'receipt' => $imageName,
                 'email' => $request->email,
                 'age' => $request->age,
                 'proof' => $request->proof,
                 'affiliates' => $request->affiliates,
                 'isWinner' => 1,
-                "transectionId" => $transectionId, // todo: if you fix this property name, kindly update front end "entry.js" file too
+                "transactionId" => $transactionId,
             ]);
             $data = [
                 "apiKey" => "61fa033a-c163-4d57-9a84-9952ec525812",
-                "transactionId" => "123456",
+                "transactionId" => $transactionId,
                 "entrantId" => ""
             ];
 
