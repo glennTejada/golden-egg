@@ -32,6 +32,8 @@ function Entry(props) {
     const handleFileUpload = (e) => {
         const {name, files} = e.target;
 
+        document.getElementById("receipt_image_name_holder").innerHTML = files[0]?.name ? files[0]?.name : 'Upload Receipt*';
+
         setFormData(prevState => ({
             ...prevState, [name]: files[0]
         }));
@@ -43,7 +45,7 @@ function Entry(props) {
 
         // check any of state values are empty
         // todo: add form validation
-        if (formData.firstname === '' || formData.lastname === '' || formData.suburb === '' || formData.number === '' || formData.product === '' || formData.receipt === '' || formData.email === '' || formData.age === false || formData.proof === false) {
+        if (formData.firstname === '' || formData.lastname === '' || formData.suburb === '' || formData.number === '' || formData.product === '' || formData.receipt === '' || formData.receipt === undefined || formData.email === '' || formData.age === false || formData.proof === false) {
             toast.warn('Please fill in all required fields');
             return;
         }
@@ -203,7 +205,7 @@ function Entry(props) {
                                     <div className="input-single-form-item">
                                         <div className="form-group-input-image">
                                             <label htmlFor="form-control-image" className="form-control">
-                                                <span> Receipt Upload*</span>
+                                                <span id="receipt_image_name_holder">Upload Receipt*</span>
                                                 <img src="img/golden-egg/camera.png" alt=""/>
                                             </label>
                                             <input

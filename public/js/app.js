@@ -5460,9 +5460,12 @@ function Entry(props) {
 
 
   var handleFileUpload = function handleFileUpload(e) {
+    var _files$, _files$2;
+
     var _e$target2 = e.target,
         name = _e$target2.name,
         files = _e$target2.files;
+    document.getElementById("receipt_image_name_holder").innerHTML = (_files$ = files[0]) !== null && _files$ !== void 0 && _files$.name ? (_files$2 = files[0]) === null || _files$2 === void 0 ? void 0 : _files$2.name : 'Upload Receipt*';
     setFormData(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, _defineProperty({}, name, files[0]));
     });
@@ -5473,7 +5476,7 @@ function Entry(props) {
     e.preventDefault(); // check any of state values are empty
     // todo: add form validation
 
-    if (formData.firstname === '' || formData.lastname === '' || formData.suburb === '' || formData.number === '' || formData.product === '' || formData.receipt === '' || formData.email === '' || formData.age === false || formData.proof === false) {
+    if (formData.firstname === '' || formData.lastname === '' || formData.suburb === '' || formData.number === '' || formData.product === '' || formData.receipt === '' || formData.receipt === undefined || formData.email === '' || formData.age === false || formData.proof === false) {
       react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please fill in all required fields');
       return;
     }
@@ -5671,7 +5674,8 @@ function Entry(props) {
                         htmlFor: "form-control-image",
                         className: "form-control",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                          children: " Receipt Upload*"
+                          id: "receipt_image_name_holder",
+                          children: "Upload Receipt*"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                           src: "img/golden-egg/camera.png",
                           alt: ""
