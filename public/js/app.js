@@ -5486,30 +5486,44 @@ function Entry(props) {
     }
 
     axios.post('/api/entry', formDataToSubmit).then(function (res) {
-      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.dismiss(); // todo: more status code 2?
+      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.dismiss();
 
-      if (res.data.status.code === 2) {
-        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error(res.data.status.description);
-      } else if (res.data.isWinner) {
-        // go to winner page
-        // todo: use react history
-        window.location.href = '/winner';
-      } else {
-        // go to good-crack page
-        window.location.href = '/good-crack';
+      switch (res.data.code) {
+        case 0:
+          // todo: maybe promotion ended, show result
+          break;
+
+        case 1:
+          // go to winner page : todo: use react history
+          window.location.href = '/winner';
+          break;
+
+        case 2:
+          // go to good-crack page
+          window.location.href = '/good-crack';
+          break;
+
+        default:
+          react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("Something went wrong");
+          break;
       }
     })["catch"](function (err) {
       react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.dismiss();
 
       if (err.response.hasOwnProperty('data') && err.response.data.hasOwnProperty('errors')) {
         // if status code is 422 show type error, otherwise show error message
-        if (err.response.status === 422) {
-          react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("The ".concat(Object.keys(err.response.data.errors)[0], " was invalid."));
-        } else {
-          react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error(err.response.data.message);
+        switch (err.response.status) {
+          case 422:
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("The ".concat(Object.keys(err.response.data.errors)[0], " was invalid."));
+            break;
+
+          case 400:
+          case 404:
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error(err.response.data.errors);
+            break;
         }
       } else {
-        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("Unknown error occurred");
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("Unknown error occurred!");
       }
     });
   };

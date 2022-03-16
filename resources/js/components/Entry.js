@@ -56,16 +56,22 @@ function Entry(props) {
         axios.post('/api/entry', formDataToSubmit)
             .then(res => {
                 toast.dismiss();
-                // todo: more status code 2?
-                if (res.data.status.code === 2) {
-                    toast.error(res.data.status.description);
-                } else if (res.data.isWinner) {
-                    // go to winner page
-                    // todo: use react history
-                    window.location.href = '/winner';
-                } else {
-                    // go to good-crack page
-                    window.location.href = '/good-crack';
+
+                switch (res.data.code) {
+                    case 0:
+                        // todo: maybe promotion ended, show result
+                        break;
+                    case 1:
+                        // go to winner page : todo: use react history
+                        window.location.href = '/winner';
+                        break;
+                    case 2:
+                        // go to good-crack page
+                        window.location.href = '/good-crack';
+                        break;
+                    default:
+                        toast.error("Something went wrong");
+                        break;
                 }
             })
             .catch(err => {
@@ -73,17 +79,19 @@ function Entry(props) {
 
                 if (err.response.hasOwnProperty('data') && err.response.data.hasOwnProperty('errors')) {
                     // if status code is 422 show type error, otherwise show error message
-                    if (err.response.status === 422) {
-                        toast.error(`The ${Object.keys(err.response.data.errors)[0]} was invalid.`);
-                    } else {
-                        toast.error(err.response.data.message);
+                    switch (err.response.status) {
+                        case 422:
+                            toast.error(`The ${Object.keys(err.response.data.errors)[0]} was invalid.`);
+                            break;
+                        case 400:
+                        case 404:
+                            toast.error(err.response.data.errors);
+                            break;
                     }
-                }else {
-                    toast.error("Unknown error occurred");
+                } else {
+                    toast.error("Unknown error occurred!");
                 }
-
             });
-
     };
 
     return (<div className="entry">

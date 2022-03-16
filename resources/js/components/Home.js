@@ -6,6 +6,7 @@ import Footer from "./Footer";
 function Home() {
     return (<div>
         <section className="banner-main-area">
+            {/*todo: use html5 picture tag for performance boost*/}
             <img className="mobile-hide" src="img/golden-egg/homePage.png" alt=""/>
             <img className="mobile-show" src="img/golden-egg/home-mobile.png" alt=""/>
         </section>
