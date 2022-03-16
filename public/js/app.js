@@ -5941,11 +5941,11 @@ function NoLuck() {
       className: "banner-main-area goodCrack",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
         className: "mobile-hide",
-        src: "img/golden-egg/GOOD_CRACK.png",
+        src: "img/golden-egg/good-crack.png",
         alt: ""
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
         className: "mobile-show",
-        src: "img/golden-egg/GOOD_CRACK_Mobile.png",
+        src: "img/golden-egg/good-crack-mobile.png",
         alt: ""
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {

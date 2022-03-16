@@ -5,12 +5,8 @@ function NoLuck() {
     return (
         <div className="no-luck">
             <section className="banner-main-area goodCrack">
-                <img className="mobile-hide" src="img/golden-egg/GOOD_CRACK.png" alt=""/>
-                <img
-                    className="mobile-show"
-                    src="img/golden-egg/GOOD_CRACK_Mobile.png"
-                    alt=""
-                />
+                <img className="mobile-hide" src="img/golden-egg/good-crack.png" alt=""/>
+                <img className="mobile-show" src="img/golden-egg/good-crack-mobile.png" alt=""/>
             </section>
             <section className="about-main-area-wrap entry-page">
                 <div className="container">
