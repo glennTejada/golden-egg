@@ -22,11 +22,13 @@ class CreateUsersTable extends Migration
             $table->string('product');
             $table->string('receipt');
             $table->string('email');
+            $table->string('password')->nullable();
             $table->string('age');
             $table->string('proof');
             $table->string('affiliates');
             $table->string('transactionId')->unique();
             $table->integer('isWinner')->default(0);
+            $table->integer('status')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

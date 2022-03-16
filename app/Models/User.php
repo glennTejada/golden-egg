@@ -25,11 +25,13 @@ class User extends Authenticatable
         'product',
         'receipt',
         'email',
+        'password',
         'age',
         'proof',
         'affiliates',
         'transactionId',
         'isWinner',
+        'status',
     ];
 
     /**

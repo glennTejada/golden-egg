@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,8 @@ Route::get('/{reactRoutes}', function () {
     return view('welcome');
 })->where('reactRoutes', '|entry|winner|good-crack|winner-list');
 
+Route::get('/admin-login', [AuthController::class, 'login']);
+Route::post('/admin-login-post', [AuthController::class, 'login_post'])->name('loginPost');
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/winner-list', [AdminController::class, 'list'])->name('winnerList');
 Route::get('/delete/{id}/', [AdminController::class, 'delete'])
