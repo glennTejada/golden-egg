@@ -5439,6 +5439,7 @@ function Entry(props) {
     product: '',
     receipt: '',
     email: '',
+    transactionId: '',
     age: false,
     proof: false,
     affiliates: false
@@ -5463,9 +5464,7 @@ function Entry(props) {
         name = _e$target2.name,
         files = _e$target2.files;
     setFormData(function (prevState) {
-      return _objectSpread(_objectSpread({}, prevState), {}, {
-        receipt: files[0].name
-      });
+      return _objectSpread(_objectSpread({}, prevState), {}, _defineProperty({}, name, files[0]));
     });
   }; // handle form submission
 
@@ -5480,7 +5479,13 @@ function Entry(props) {
     }
 
     react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.info("Submitting Information...");
-    axios.post('/api/entry', formData).then(function (res) {
+    var formDataToSubmit = new FormData();
+
+    for (var key in formData) {
+      formDataToSubmit.append(key, formData[key]);
+    }
+
+    axios.post('/api/entry', formDataToSubmit).then(function (res) {
       react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.dismiss(); // todo: more status code 2?
 
       if (res.data.status.code === 2) {
@@ -5495,7 +5500,17 @@ function Entry(props) {
       }
     })["catch"](function (err) {
       react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.dismiss();
-      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("Error submitting information");
+
+      if (err.response.hasOwnProperty('data') && err.response.data.hasOwnProperty('errors')) {
+        // if status code is 422 show type error, otherwise show error message
+        if (err.response.status === 422) {
+          react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("The ".concat(Object.keys(err.response.data.errors)[0], " was invalid."));
+        } else {
+          react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error(err.response.data.message);
+        }
+      } else {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("Unknown error occurred");
+      }
     });
   };
 
@@ -5674,6 +5689,28 @@ function Entry(props) {
                         onChange: function onChange(e) {
                           return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
                             email: e.target.value
+                          }));
+                        }
+                      })
+                    })
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "col-md-6",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "input-single-form-item",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                      className: "form-group",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                        type: "text",
+                        className: "form-control",
+                        id: "transactionId",
+                        name: "transactionId",
+                        "aria-describedby": "transactionIdHelp",
+                        placeholder: "Enter Transaction Id*",
+                        required: true,
+                        onChange: function onChange(e) {
+                          return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+                            transactionId: e.target.value
                           }));
                         }
                       })

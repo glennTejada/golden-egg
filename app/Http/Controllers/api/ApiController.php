@@ -12,27 +12,23 @@ use thiagoalessio\TesseractOCR\TesseractOCR;
 
 class ApiController extends Controller
 {
-    public function entry(UserRequest $request){
+    public function entry(Request $request){
 
         $firstname = preg_replace('/\s+/', '', $request->firstname);
         $titleWithOutRegExpression = str_replace( array( '\'', '!','”','#','$','%','&','’','(', '*','+',',',
             '-','.','/',':',';','<','=','>','?','@','[',']','^','_','`','{','|','}','~'), '', $firstname);
         $imageName = time() . '-' . $titleWithOutRegExpression . '.' . $request->receipt->extension();
         $request->receipt->move(public_path('images'), $imageName);
-        $path = public_path('images') . '/' . $imageName;
 
-        $text = (new TesseractOCR($path))
-            ->run();
 
-        $transactionId = rand(0,1);
+        $transactionId = $request->transactionId;
         $transactionIdValidation = User::where('transactionId',$transactionId)->first();
 
         if($transactionIdValidation != null)
             return response()->json(
                 [
-                    "message" => "The given data was invalid.",
-                    'errors' => ['transactionId' =>['Transaction Id already used']]
-                ]);
+                    'errors' => 'Transaction Id already used'
+                ],400);
         else {
             User::create([
                 'firstname' => $request->firstname,

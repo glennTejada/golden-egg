@@ -14,7 +14,7 @@ function Entry(props) {
         product: '',
         receipt: '',
         email: '',
-        transectionId: '',
+        transactionId: '',
         age: false,
         proof: false,
         affiliates: false,
@@ -231,12 +231,12 @@ function Entry(props) {
                                             <input
                                                 type="text"
                                                 className="form-control"
-                                                id="transectionId"
-                                                name='transectionId'
+                                                id="transactionId"
+                                                name='transactionId'
                                                 aria-describedby="transactionIdHelp"
                                                 placeholder="Enter Transaction Id*"
                                                 required
-                                                onChange={(e) => setFormData({...formData, transectionId: e.target.value})}
+                                                onChange={(e) => setFormData({...formData, transactionId: e.target.value})}
                                             />
                                         </div>
                                     </div>
