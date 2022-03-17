@@ -11,6 +11,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
+                    @if(count($winners)>0)
                     <a class="btn btn-success" href="{{ route('file-export') }}">Export Data In CSV</a>
                     <br>
                     <br>
@@ -45,6 +46,9 @@
                         </tbody>
 
                     </table>
+                    @else
+                        <b>No Winner Found</b>
+                    @endif
                 </div>
                 <!-- /.card-body -->
             </div>

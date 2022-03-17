@@ -11,12 +11,12 @@ use Maatwebsite\Excel\Facades\Excel;
 class AdminController extends Controller
 {
     public function index(){
-        $winners = count(User::all()) ;
+        $winners = count(User::where('isWinner',1)->get()) ;
         return view('admin.index',compact('winners'));
     }
 
     public function list(){
-        $winners = User::all();
+        $winners = User::where('isWinner',1)->get();
         return view('admin.list',compact('winners'));
     }
 
