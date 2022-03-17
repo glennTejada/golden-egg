@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -21,5 +23,9 @@ class AdminController extends Controller
     public function delete($id){
         User::find($id)->delete();
         return redirect()->back();
+    }
+    public function fileExport()
+    {
+        return Excel::download(new UsersExport, 'winners-list.xlsx');
     }
 }

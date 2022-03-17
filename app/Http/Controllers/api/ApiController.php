@@ -31,7 +31,6 @@ class ApiController extends Controller
         else {
             $data = [
                 "apiKey" => "61fa033a-c163-4d57-9a84-9952ec525812",
-
                 "transactionId" => $transactionId,
                 "entrantId" => $request->email,
             ];

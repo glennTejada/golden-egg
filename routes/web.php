@@ -28,5 +28,6 @@ Route::prefix("admin")->middleware("auth")->group(function (){
     Route::get('/winner-list', [AdminController::class, 'list'])->name('winnerList');
     Route::get('/delete/{id}/', [AdminController::class, 'delete'])
         ->name('delete');
+    Route::get('file-export', [AdminController::class, 'fileExport'])->name('file-export');
 });
 

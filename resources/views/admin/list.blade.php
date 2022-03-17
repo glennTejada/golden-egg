@@ -11,6 +11,9 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
+                    <a class="btn btn-success" href="{{ route('file-export') }}">Export Data In CSV</a>
+                    <br>
+                    <br>
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                         <tr>
@@ -20,6 +23,7 @@
                             <th>Number</th>
                             <th>Product</th>
                             <th>Receipt</th>
+                            <th>TransactionId</th>
                             <th>Email</th>
                             <th>Action</th>
                         </tr>
@@ -32,7 +36,8 @@
                             <td>{{$winner->suburb}}</td>
                             <td>{{$winner->number}}</td>
                             <td>{{$winner->product}}</td>
-                            <td>{{$winner->receipt}}</td>
+                            <td><a href="{{asset('images/'.$winner->receipt)}}" >Receipt Image</a></td>
+                            <td>{{$winner->transactionId}}</td>
                             <td>{{$winner->email}}</td>
                             <td><a href="{{ route('delete',['id'=>$winner->id]) }}" class="btn btn-danger">Delete</a></td>
                         </tr>
