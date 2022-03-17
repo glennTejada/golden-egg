@@ -43,7 +43,7 @@ class ApiController extends Controller
                 $response = $client->request("POST", "https://pistol-01-yvwa6gxw.instantwinapi.com/api/entry", ['form_params' => $data]);
                 $result = json_decode($response->getBody());
 
-                if ($result->status->code == 0) {
+                if ($result->status->code != 0) {
                     if ($result->isWinner == null) {
                         User::create([
                             'firstname' => $request->firstname,
