@@ -32,7 +32,7 @@ class ApiController extends Controller
             $data = [
                 "apiKey" => "61fa033a-c163-4d57-9a84-9952ec525812",
                 "transactionId" => $transactionId,
-                "entrantId" => ""
+                "entrantId" => $request->email,
             ];
 
             $client = new Client([
