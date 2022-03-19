@@ -123,6 +123,10 @@ label.form-check-label {
     color: #535353;
     background-color: #f8fafc;
     margin: 3px 0 0 5px;
+
+    a{
+        color: #535353;
+    }
 }
 
 label.form-control.compate-page {
@@ -189,6 +193,10 @@ small.form-text.text-muted {
     label.form-check-label {
         color: #535353;
         font-size: 14px;
+
+        a{
+            color: #535353;
+        }
     }
     section.banner-main-area {
         max-height: 100%;

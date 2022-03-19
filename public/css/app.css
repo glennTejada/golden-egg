@@ -11412,6 +11412,9 @@ label.form-check-label {
   background-color: #f8fafc;
   margin: 3px 0 0 5px;
 }
+label.form-check-label a {
+  color: #535353;
+}
 
 label.form-control.compate-page {
   justify-content: unset;
@@ -11483,6 +11486,9 @@ small.form-text.text-muted, .form-text.text-muted.small {
   label.form-check-label {
     color: #535353;
     font-size: 14px;
+  }
+  label.form-check-label a {
+    color: #535353;
   }
 
   section.banner-main-area {

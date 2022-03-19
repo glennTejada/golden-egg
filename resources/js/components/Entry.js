@@ -45,7 +45,7 @@ function Entry(props) {
 
         // check any of state values are empty
         // todo: add form validation
-        if (formData.firstname === '' || formData.lastname === '' || formData.suburb === '' || formData.number === '' || formData.product === '' || formData.receipt === '' || formData.receipt === undefined || formData.email === '' || formData.age === false || formData.proof === false) {
+        if (formData.firstname === '' || formData.lastname === '' || formData.suburb === '' || formData.number === '' || formData.product === '' || formData.receipt === '' || formData.receipt === undefined || formData.transactionId === '' || formData.email === '' || formData.age === false || formData.proof === false) {
             toast.warn('Please fill in all required fields');
             return;
         }
@@ -264,9 +264,10 @@ function Entry(props) {
                                             required
                                             onChange={(e) => setFormData({...formData, age: e.target.checked})}
                                         />
-                                        <label className="form-check-label" htmlFor="exampleCheck1"
+                                        <label className="form-check-label" htmlFor="age"
                                         >I am 18 years of age or older, and I have read and accept
-                                            the Terms & Conditions and the Privacy Policy.
+                                            the <a href="terms" target="_blank"><u>Terms & Conditions</u></a> and the <a href="https://www.mars.com/privacy" target="_blank"><u>Privacy
+                                                Policy</u></a>.
                                         </label>
                                     </div>
                                     <div className="form-check">
@@ -278,10 +279,9 @@ function Entry(props) {
                                             required
                                             onChange={(e) => setFormData({...formData, proof: e.target.checked})}
                                         />
-                                        <label className="form-check-label" htmlFor="exampleCheck2"
-                                        >I understand that I must retain receipt(s) as proof of
-                                            purchase.</label
-                                        >
+                                        <label className="form-check-label" htmlFor="proof">
+                                            I understand that I must retain receipt(s) as proof of purchase.
+                                        </label>
                                     </div>
                                     <div className="form-check">
                                         <input
@@ -293,27 +293,25 @@ function Entry(props) {
                                                 setFormData({...formData, affiliates: e.target.checked})
                                             }}
                                         />
-                                        <label className="form-check-label" htmlFor="exampleCheck3"
+                                        <label className="form-check-label" htmlFor="affiliates"
                                         >We’d like to keep you and your pet up to date with
                                             exciting promotions, pet care tips and info & new product
                                             developments from Mars Petcare and its affiliates. <br/>
 
-                                            I am 18 years or older, and would like to receive these
-                                            from: <br/>
-
-                                            Mars Petcare and its affiliates <br/>
+                                            I am over 18+ years old and I consent to receive marketing and promotional
+                                            materials from Mars Petcare and its affiliates. <br/>
 
                                             I understand that I may change these preferences at any
                                             time by clicking the unsubscribe link in any communication
                                             I receive. <br/>
 
-                                            We may occasionally use your information to enhance our
-                                            product & service offerings. You can find out how and for
-                                            what purposes Mars Petcare and its affiliates collects,
-                                            uses and may disclose your personal information. You can
-                                            also discover how to contact us with your privacy
-                                            questions, and exercise your privacy rights, via the Mars
-                                            Privacy Statement.
+                                            We may use your personal information for research to enhance our product and
+                                            service offerings. You can find out how and for what purposes Mars Petcare
+                                            and its affiliates collects, uses and may disclose your personal
+                                            information.
+                                            You can also discover how to contact us with your privacy questions, and
+                                            exercise your privacy rights, via the <a href="https://www.mars.com/privacy" target="_blank"><u>Mars Privacy
+                                                Statement</u></a>.
                                         </label>
                                     </div>
                                 </div>
@@ -321,16 +319,12 @@ function Entry(props) {
                             <button onClick={handleSubmit}>Submit</button>
                         </form>
                         <p className="text-center">
-                            *T&Cs apply, see www.masterfoods.com.au/competition. Open to AU
-                            res 18+. Starts 12:01am AEST 16/03/2022. Ends 11:59pm AEST
-                            26/04/2022. Retain receipt/s. To enter promotion, purchase
-                            qualifying product, complete the entry form incl. uploading
-                            receipt for your chance to provisionally win. (Game of Chance):
-                            Max 1 entry per day. 1500 x $50 prepaid vouchers. Total prize pool
-                            up to $75000. Winners listed on website 02/05/2022. Promoter is
-                            Mars Australia Pty Ltd t/as Mars Food (ABN 48 008 454 313) of
-                            Tower 2, Collins Square, 727 Collins St, Docklands, Melbourne VIC
-                            3008. NSW TP/01302. ACT 22/00002. SA T21/2087.
+                            *T&Cs apply, schmackos.com.au/goldenegg. Open to AU residents 18+. Starts 12:01am AEST 23.03.22.
+                            Ends 11:59pm AEST 19.04.22. To enter, purchase qualifying product, complete entry form &
+                            upload receipt for your chance to win. Max 2 entries per day. 10 x $1000 Digital VISA Gift
+                            Cards. Total prize pool up to $10,000. Winners listed on website on the 26.04.22. Mars Australia
+                            Pty Ltd trading as Mars Petcare Australia (ABN 48 008 454 313) of Petcare Place, Wodonga VIC
+                            3690. NSW; TP/01302 ACT; TP 21/02279 SA; T21/2053
                         </p>
                     </div>
                 </div>

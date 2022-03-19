@@ -5476,7 +5476,7 @@ function Entry(props) {
     e.preventDefault(); // check any of state values are empty
     // todo: add form validation
 
-    if (formData.firstname === '' || formData.lastname === '' || formData.suburb === '' || formData.number === '' || formData.product === '' || formData.receipt === '' || formData.receipt === undefined || formData.email === '' || formData.age === false || formData.proof === false) {
+    if (formData.firstname === '' || formData.lastname === '' || formData.suburb === '' || formData.number === '' || formData.product === '' || formData.receipt === '' || formData.receipt === undefined || formData.transactionId === '' || formData.email === '' || formData.age === false || formData.proof === false) {
       react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please fill in all required fields');
       return;
     }
@@ -5755,10 +5755,22 @@ function Entry(props) {
                           age: e.target.checked
                         }));
                       }
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
                       className: "form-check-label",
-                      htmlFor: "exampleCheck1",
-                      children: "I am 18 years of age or older, and I have read and accept the Terms & Conditions and the Privacy Policy."
+                      htmlFor: "age",
+                      children: ["I am 18 years of age or older, and I have read and accept the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                        href: "terms",
+                        target: "_blank",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("u", {
+                          children: "Terms & Conditions"
+                        })
+                      }), " and the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                        href: "https://www.mars.com/privacy",
+                        target: "_blank",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("u", {
+                          children: "Privacy Policy"
+                        })
+                      }), "."]
                     })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                     className: "form-check",
@@ -5775,7 +5787,7 @@ function Entry(props) {
                       }
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                       className: "form-check-label",
-                      htmlFor: "exampleCheck2",
+                      htmlFor: "proof",
                       children: "I understand that I must retain receipt(s) as proof of purchase."
                     })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -5792,8 +5804,14 @@ function Entry(props) {
                       }
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
                       className: "form-check-label",
-                      htmlFor: "exampleCheck3",
-                      children: ["We\u2019d like to keep you and your pet up to date with exciting promotions, pet care tips and info & new product developments from Mars Petcare and its affiliates. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), "I am 18 years or older, and would like to receive these from: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), "Mars Petcare and its affiliates ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), "I understand that I may change these preferences at any time by clicking the unsubscribe link in any communication I receive. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), "We may occasionally use your information to enhance our product & service offerings. You can find out how and for what purposes Mars Petcare and its affiliates collects, uses and may disclose your personal information. You can also discover how to contact us with your privacy questions, and exercise your privacy rights, via the Mars Privacy Statement."]
+                      htmlFor: "affiliates",
+                      children: ["We\u2019d like to keep you and your pet up to date with exciting promotions, pet care tips and info & new product developments from Mars Petcare and its affiliates. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), "I am over 18+ years old and I consent to receive marketing and promotional materials from Mars Petcare and its affiliates. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), "I understand that I may change these preferences at any time by clicking the unsubscribe link in any communication I receive. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), "We may use your personal information for research to enhance our product and service offerings. You can find out how and for what purposes Mars Petcare and its affiliates collects, uses and may disclose your personal information. You can also discover how to contact us with your privacy questions, and exercise your privacy rights, via the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                        href: "https://www.mars.com/privacy",
+                        target: "_blank",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("u", {
+                          children: "Mars Privacy Statement"
+                        })
+                      }), "."]
                     })]
                   })]
                 })
@@ -5803,7 +5821,7 @@ function Entry(props) {
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
               className: "text-center",
-              children: "*T&Cs apply, see www.masterfoods.com.au/competition. Open to AU res 18+. Starts 12:01am AEST 16/03/2022. Ends 11:59pm AEST 26/04/2022. Retain receipt/s. To enter promotion, purchase qualifying product, complete the entry form incl. uploading receipt for your chance to provisionally win. (Game of Chance): Max 1 entry per day. 1500 x $50 prepaid vouchers. Total prize pool up to $75000. Winners listed on website 02/05/2022. Promoter is Mars Australia Pty Ltd t/as Mars Food (ABN 48 008 454 313) of Tower 2, Collins Square, 727 Collins St, Docklands, Melbourne VIC 3008. NSW TP/01302. ACT 22/00002. SA T21/2087."
+              children: "*T&Cs apply, schmackos.com.au/goldenegg. Open to AU residents 18+. Starts 12:01am AEST 23.03.22. Ends 11:59pm AEST 19.04.22. To enter, purchase qualifying product, complete entry form & upload receipt for your chance to win. Max 2 entries per day. 10 x $1000 Digital VISA Gift Cards. Total prize pool up to $10,000. Winners listed on website on the 26.04.22. Mars Australia Pty Ltd trading as Mars Petcare Australia (ABN 48 008 454 313) of Petcare Place, Wodonga VIC 3690. NSW; TP/01302 ACT; TP 21/02279 SA; T21/2053"
             })]
           })]
         })
@@ -5841,14 +5859,21 @@ function Footer() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "footer-inner-wrap",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-          href: "#",
+          href: "https://www.mars.com/contact-us",
+          target: "_blank",
           children: "CONTACT"
-        }), "| ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-          href: "#",
+        }), "|", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          href: "https://www.mars.com/privacy",
+          target: "_blank",
           children: "PRIVACY"
         }), "|", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-          href: "#",
+          href: "terms",
+          target: "_blank",
           children: "*TERMS & CONDITIONS"
+        }), "|", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          href: "faq",
+          target: "_blank",
+          children: "FAQ"
         })]
       })
     })
@@ -5907,7 +5932,7 @@ function Home() {
               children: "Enter"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            children: "*T&Cs apply, see www.masterfoods.com.au/competition. Open to AU res 18+. Starts 12:01am AEST 16/03/2022. Ends 11:59pm AEST 26/04/2022. Retain receipt/s. To enter promotion, purchase qualifying product, complete the entry form incl. uploading receipt for your chance to provisionally win. (Game of Chance): Max 1 entry per day. 1500 x $50 prepaid vouchers. Total prize pool up to $75000. Winners listed on website 02/05/2022. Promoter is Mars Australia Pty Ltd t/as Mars Food (ABN 48 008 454 313) of Tower 2, Collins Square, 727 Collins St, Docklands, Melbourne VIC 3008. NSW TP/01302. ACT 22/00002. SA T21/2087."
+            children: "*T&Cs apply, schmackos.com.au/goldenegg. Open to AU residents 18+. Starts 12:01am AEST 23.03.22. Ends 11:59pm AEST 19.04.22. To enter, purchase qualifying product, complete entry form & upload receipt for your chance to win. Max 2 entries per day. 10 x $1000 Digital VISA Gift Cards. Total prize pool up to $10,000. Winners listed on website on the 26.04.22. Mars Australia Pty Ltd trading as Mars Petcare Australia (ABN 48 008 454 313) of Petcare Place, Wodonga VIC 3690. NSW; TP/01302 ACT; TP 21/02279 SA; T21/2053"
           })]
         })
       })
@@ -5960,9 +5985,9 @@ function NoLuck() {
           className: "about-inner-wrap entry-page",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
             children: "But not this time"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h4", {
             className: "mb-5",
-            children: "Unfortunately, you didn\u2019t win this time. Please feel free to enter again with your next purchase."
+            children: ["Unfortunately, you didn\u2019t win this time. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Please feel free to enter again with your next purchase. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Limit two entries per day."]
           })]
         })
       })
@@ -6015,9 +6040,9 @@ function Winner() {
           className: "about-inner-wrap entry-page",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
             children: "Congratulations!"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h4", {
             className: "mb-5",
-            children: "You\u2019ve provisionally won a $1000 Digital Visa Gift Card! Once your entry has been validated, you will receive an email to your nominated email address notifying you of how to claim your prize."
+            children: ["You\u2019ve provisionally won a $1000 Digital Visa Gift Card! ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Once your entry has been validated, you will receive an email to your nominated email address notifying you of how to claim your prize."]
           })]
         })
       })

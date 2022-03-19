@@ -13,7 +13,9 @@ function NoLuck() {
                     <div className="about-inner-wrap entry-page">
                         <h2>But not this time</h2>
                         <h4 className="mb-5">
-                            Unfortunately, you didn’t win this time. Please feel free to enter again with your next purchase.
+                            Unfortunately, you didn’t win this time. <br/>
+                            Please feel free to enter again with your next purchase. <br/>
+                            Limit two entries per day.
                         </h4>
                     </div>
                 </div>
