@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Footer from "./Footer";
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.min.css';
+import ReCAPTCHA from "react-google-recaptcha";
 
 function Entry(props) {
 
@@ -19,6 +20,8 @@ function Entry(props) {
         proof: false,
         affiliates: false,
     });
+
+    const [recaptchaState, setRecaptcha] = useState(false);
 
     // todo: add form input validation
     const handleChange = (e) => {
@@ -316,7 +319,14 @@ function Entry(props) {
                                     </div>
                                 </div>
                             </div>
-                            <button onClick={handleSubmit}>Submit</button>
+                            <button disabled={!recaptchaState} onClick={handleSubmit}>Submit</button>
+                            <div id="captcha">
+                                <ReCAPTCHA
+                                    sitekey="6Lce4fEeAAAAAASrWGOTC3i2m23kI7UHxRuvzz3F"
+                                    onChange={() => setRecaptcha(!recaptchaState)}
+                                />
+                            </div>
+
                         </form>
                         <p className="text-center">
                             *T&Cs apply, schmackos.com.au/goldenegg. Open to AU residents 18+. Starts 12:01am AEST 23.03.22.

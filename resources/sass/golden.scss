@@ -46,6 +46,10 @@ section.about-main-area-wrap {
     justify-content: center;
     align-items: center;
     margin: auto auto 14px;
+
+    &:disabled{
+        background: rgba(198, 64, 73, 0.62);
+    }
 }
 
 footer.footer-main-area-wrap {
@@ -215,4 +219,10 @@ section.banner-main-area.entry-page {
 
 a {
     text-decoration: none !important;
+}
+
+#captcha{
+    display: flex;
+    justify-content: center;
+    margin: auto auto 14px;
 }
