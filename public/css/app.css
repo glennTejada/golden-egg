@@ -11315,9 +11315,8 @@ section.about-main-area-wrap {
 
 .about-inner-wrap h4, .about-inner-wrap .h4 {
   width: 560px;
-  margin: auto;
   line-height: 28px;
-  margin-bottom: 20px;
+  margin: auto auto 20px;
   font-size: 20px;
 }
 
@@ -11476,6 +11475,10 @@ small.form-text.text-muted, .form-text.text-muted.small {
     font-size: 12px;
   }
 
+  .about-inner-wrap h4, .about-inner-wrap .h4 {
+    font-size: 17px;
+  }
+
   .about-inner-wrap.entry-page h2, .about-inner-wrap.entry-page .h2 {
     font-size: 30px;
   }
@@ -11496,6 +11499,11 @@ small.form-text.text-muted, .form-text.text-muted.small {
 
   section.banner-main-area {
     max-height: 100%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .about-inner-wrap h4, .about-inner-wrap .h4 {
+    font-size: 15px;
   }
 }
 section.banner-main-area.entry-page > img {
@@ -11536,5 +11544,5 @@ span.spacer {
 span.asterisk:after {
   content: "*";
   position: relative;
-  top: -4px;
+  top: -3px;
 }

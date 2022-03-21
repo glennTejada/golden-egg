@@ -17,7 +17,7 @@ function Winner() {
                     <div className="about-inner-wrap entry-page">
                         <h2>Congratulations!</h2>
                         <h4 className="mb-5">
-                            You’ve provisionally won a $1000 Digital Visa Gift Card! <br/>
+                            You’ve provisionally won a $1000 Digital Visa Gift <span className="asterisk"> Card!</span><br/>
                             Once your entry has been validated, you will receive an email to your nominated email address
                             notifying you of how to claim your prize.
                         </h4>

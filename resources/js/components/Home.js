@@ -14,8 +14,9 @@ function Home() {
             <div className="container">
                 <div className="about-inner-wrap">
                     <h4>
-                        Purchase any TEMPTATIONS™ or SCHMACKOS™ product and upload your receipt for the chance to WIN 1
-                        of 10 x $1000 Digital Visa Gift Cards.
+                        Purchase any TEMPTATIONS™ or SCHMACKOS™
+                        product from any participating Woolworths store and upload your receipt for the chance to <br/>
+                        <nobr> WIN 1 of 10 x $1000 Digital Visa Gift <span className="asterisk">Cards</span></nobr>
                     </h4>
                     <Link to={'/entry'}>
                         <button>Enter</button>

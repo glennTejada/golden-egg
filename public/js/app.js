@@ -5484,12 +5484,38 @@ function Entry(props) {
 
 
   var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-    console.log(formData); // check any of state values are empty
+    e.preventDefault(); // check any of state values are empty
     // todo: add form validation
 
-    if (formData.firstname === '' || formData.lastname === '' || formData.suburb === '' || formData.number === '' || formData.product === '' || formData.receipt === '' || formData.receipt === undefined || formData.transactionId === '' || formData.email === '' || formData.age === false || formData.proof === false) {
-      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please fill in all required fields');
+    if (formData.firstname === '') {
+      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please enter your first name');
+      return;
+    } else if (formData.lastname === '') {
+      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please enter your last name');
+      return;
+    } else if (formData.suburb === '') {
+      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please enter your post code');
+      return;
+    } else if (formData.number === '') {
+      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please enter your mobile number');
+      return;
+    } else if (formData.product === '') {
+      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please enter the product you purchased');
+      return;
+    } else if (formData.receipt === '' || formData.receipt === undefined) {
+      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please upload your receipt');
+      return;
+    } else if (formData.transactionId === '') {
+      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please enter the receipt number');
+      return;
+    } else if (formData.email === '') {
+      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please enter your email address');
+      return;
+    } else if (formData.age === false) {
+      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please confirm you have read and agree with our terms and conditions');
+      return;
+    } else if (formData.proof === false) {
+      react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.warn('Please confirm you have proof of purchase');
       return;
     }
 
@@ -5627,7 +5653,8 @@ function Entry(props) {
                         className: "form-control",
                         id: "suburb",
                         name: "suburb",
-                        placeholder: "Suburb *",
+                        placeholder: "Post code *",
+                        maxLength: 4,
                         required: true,
                         onChange: function onChange(e) {
                           return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -5648,7 +5675,7 @@ function Entry(props) {
                         className: "form-control",
                         id: "number",
                         name: "number",
-                        placeholder: "Phone Number *",
+                        placeholder: "Mobile Number *",
                         required: true,
                         onChange: function onChange(e) {
                           return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -5675,7 +5702,7 @@ function Entry(props) {
                           value: "DEFAULT",
                           disabled: true,
                           hidden: true,
-                          children: "Select Product *"
+                          children: "Select Product Type *"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                           value: "SCHMACKOS-STRAPZ-Bf-4x500g",
                           children: "SCHMACKOS STRAPZ Bf 4x500g"
@@ -5799,7 +5826,7 @@ function Entry(props) {
                         id: "email",
                         name: "email",
                         "aria-describedby": "emailHelp",
-                        placeholder: "Enter email *",
+                        placeholder: "Email Address *",
                         required: true,
                         onChange: function onChange(e) {
                           return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -5821,7 +5848,7 @@ function Entry(props) {
                         id: "transactionId",
                         name: "transactionId",
                         "aria-describedby": "transactionIdHelp",
-                        placeholder: "Enter Transaction Id *",
+                        placeholder: "Receipt number *",
                         required: true,
                         onChange: function onChange(e) {
                           return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -5928,10 +5955,6 @@ function Entry(props) {
                     })]
                   })]
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                disabled: !recaptchaState,
-                onClick: handleSubmit,
-                children: "Submit"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 id: "captcha",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_google_recaptcha__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -5940,6 +5963,10 @@ function Entry(props) {
                     return setRecaptcha(!recaptchaState);
                   }
                 })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                disabled: !recaptchaState,
+                onClick: handleSubmit,
+                children: "Submit"
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
               className: "text-center",
@@ -6048,8 +6075,13 @@ function Home() {
         className: "container",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "about-inner-wrap",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-            children: "Purchase any TEMPTATIONS\u2122 or SCHMACKOS\u2122 product and upload your receipt for the chance to WIN 1 of 10 x $1000 Digital Visa Gift Cards."
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h4", {
+            children: ["Purchase any TEMPTATIONS\u2122 or SCHMACKOS\u2122 product from any participating Woolworths store and upload your receipt for the chance to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("nobr", {
+              children: [" WIN 1 of 10 x $1000 Digital Visa Gift ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "asterisk",
+                children: "Cards"
+              })]
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
             to: '/entry',
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
@@ -6166,7 +6198,10 @@ function Winner() {
             children: "Congratulations!"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h4", {
             className: "mb-5",
-            children: ["You\u2019ve provisionally won a $1000 Digital Visa Gift Card! ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Once your entry has been validated, you will receive an email to your nominated email address notifying you of how to claim your prize."]
+            children: ["You\u2019ve provisionally won a $1000 Digital Visa Gift ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "asterisk",
+              children: " Card!"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Once your entry has been validated, you will receive an email to your nominated email address notifying you of how to claim your prize."]
           })]
         })
       })
@@ -56892,7 +56927,7 @@ function injectIntoDevTools(devToolsConfig) {
     scheduleRoot:  scheduleRoot ,
     setRefreshHandler:  setRefreshHandler ,
     // Enables DevTools to append owner stacks to error messages in DEV mode.
-    getCurrentFiber:  getCurrentFiberForDevTools
+    getCurrentFiber:  getCurrentFiberForDevTools 
   });
 }
 
@@ -65428,7 +65463,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_ReactToastify_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./ReactToastify.min.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/react-toastify/dist/ReactToastify.min.css");
 
-
+            
 
 var options = {};
 
@@ -65768,7 +65803,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -65782,20 +65817,20 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
@@ -65828,7 +65863,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return result;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -65840,7 +65875,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -65852,7 +65887,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -65864,12 +65899,12 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -65880,7 +65915,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -65889,11 +65924,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
-/******/
+/******/ 		
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
@@ -65901,19 +65936,19 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0
 /******/ 		};
-/******/
+/******/ 		
 /******/ 		// no chunk on demand loading
-/******/
+/******/ 		
 /******/ 		// no prefetching
-/******/
+/******/ 		
 /******/ 		// no preloaded
-/******/
+/******/ 		
 /******/ 		// no HMR
-/******/
+/******/ 		
 /******/ 		// no HMR manifest
-/******/
+/******/ 		
 /******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/
+/******/ 		
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
 /******/ 			var [chunkIds, moreModules, runtime] = data;
@@ -65938,20 +65973,20 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
-/******/
+/******/ 		
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
-/******/
+/******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/
+/******/ 	
 /******/ })()
 ;

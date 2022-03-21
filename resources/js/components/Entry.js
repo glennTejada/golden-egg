@@ -25,7 +25,7 @@ function Entry(props) {
 
     // todo: add form input validation
     const handleChange = (e) => {
-        if (e.target.name === 'product'){
+        if (e.target.name === 'product') {
             e.target.classList.add('text-black');
         }
         const {name, value} = e.target;
@@ -49,14 +49,40 @@ function Entry(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(formData);
-
         // check any of state values are empty
         // todo: add form validation
-        if (formData.firstname === '' || formData.lastname === '' || formData.suburb === '' || formData.number === '' || formData.product === '' || formData.receipt === '' || formData.receipt === undefined || formData.transactionId === '' || formData.email === '' || formData.age === false || formData.proof === false) {
-            toast.warn('Please fill in all required fields');
+        if (formData.firstname === '') {
+            toast.warn('Please enter your first name');
+            return;
+        } else if (formData.lastname === '') {
+            toast.warn('Please enter your last name');
+            return;
+        } else if (formData.suburb === '') {
+            toast.warn('Please enter your post code');
+            return;
+        } else if (formData.number === '') {
+            toast.warn('Please enter your mobile number');
+            return;
+        } else if (formData.product === '') {
+            toast.warn('Please enter the product you purchased');
+            return;
+        } else if (formData.receipt === '' || formData.receipt === undefined) {
+            toast.warn('Please upload your receipt');
+            return;
+        } else if (formData.transactionId === '') {
+            toast.warn('Please enter the receipt number');
+            return;
+        } else if (formData.email === '') {
+            toast.warn('Please enter your email address');
+            return;
+        } else if (formData.age === false) {
+            toast.warn('Please confirm you have read and agree with our terms and conditions');
+            return;
+        } else if (formData.proof === false) {
+            toast.warn('Please confirm you have proof of purchase');
             return;
         }
+
         toast.info("Submitting Information...");
 
         let formDataToSubmit = new FormData();
@@ -170,7 +196,8 @@ function Entry(props) {
                                                 className="form-control"
                                                 id="suburb"
                                                 name='suburb'
-                                                placeholder="Suburb *"
+                                                placeholder="Post code *"
+                                                maxLength={4}
                                                 required
                                                 onChange={(e) => setFormData({...formData, suburb: e.target.value})}
                                             />
@@ -185,7 +212,7 @@ function Entry(props) {
                                                 className="form-control"
                                                 id="number"
                                                 name='number'
-                                                placeholder="Phone Number *"
+                                                placeholder="Mobile Number *"
                                                 required
                                                 onChange={(e) => setFormData({...formData, number: e.target.value})}
                                             />
@@ -196,35 +223,84 @@ function Entry(props) {
                                     <div className="input-single-form-item">
                                         <div className="form-group">
                                             <select className="form-control" id="product" name='product' required
-                                                onChange={handleChange} defaultValue={'DEFAULT'}>
-                                                <option value="DEFAULT" disabled hidden>Select Product *</option>
-                                                <option value="SCHMACKOS-STRAPZ-Bf-4x500g">SCHMACKOS STRAPZ Bf 4x500g</option>
-                                                <option value="SCHMACKOS-STRAPZ-3VrtyPk-4x500g">SCHMACKOS STRAPZ 3VrtyPk 4x500g</option>
-                                                <option value="SCHMACKOS-STRAPZ-Ck-4x500g">SCHMACKOS STRAPZ Ck 4x500g</option>
-                                                <option value="SCHMACKOS-STRAPZ-Lv-4x500g">SCHMACKOS STRAPZ Lv 4x500g</option>
+                                                    onChange={handleChange} defaultValue={'DEFAULT'}>
+                                                <option value="DEFAULT" disabled hidden>Select Product Type *</option>
+                                                <option value="SCHMACKOS-STRAPZ-Bf-4x500g">SCHMACKOS STRAPZ Bf 4x500g
+                                                </option>
+                                                <option value="SCHMACKOS-STRAPZ-3VrtyPk-4x500g">SCHMACKOS STRAPZ 3VrtyPk
+                                                    4x500g
+                                                </option>
+                                                <option value="SCHMACKOS-STRAPZ-Ck-4x500g">SCHMACKOS STRAPZ Ck 4x500g
+                                                </option>
+                                                <option value="SCHMACKOS-STRAPZ-Lv-4x500g">SCHMACKOS STRAPZ Lv 4x500g
+                                                </option>
                                                 <option value="SCHMACKOS-MBN-3x737g">SCHMACKOS MBN 3x737g</option>
-                                                <option value="SCHMACKOS-BBQ-Drmstck-7x5piece">SCHMACKOS BBQ Drmstck 7x5piece</option>
-                                                <option value="SCHMACKOS-ChpnChw-LDog-Bf-1pc-15x60g">SCHMACKOS ChpnChw LDog Bf 1pc 15x60g</option>
-                                                <option value="SCHMACKOS-STRAPZ-Ck-8x200g">SCHMACKOS STRAPZ Ck 8x200g</option>
-                                                <option value="SCHMACKOS-STRAPZ-Bf-8x200g">SCHMACKOS STRAPZ Bf 8x200g</option>
-                                                <option value="SCHMACKOS-STRAPZ-Bf-3x1kg">SCHMACKOS STRAPZ Bf 3x1kg</option>
-                                                <option value="SCHMACKOS-STRAPZ-Bf-3x1kg">SCHMACKOS STRAPZ Bf 3x1kg</option>
-                                                <option value="SCHMACKOS-STRAPZ-Lv-8x200g">SCHMACKOS STRAPZ Lv 8x200g</option>
-                                                <option value="SCHMACKOS-STRAPZ-BBQ-Lb-8x200g">SCHMACKOS STRAPZ BBQ Lb 8x200g</option>
-                                                <option value="SCHMACKOS-STIX-Bf-4x500g">SCHMACKOS STIX Bf 4x500g</option>
-                                                <option value="SCHMACKOS-STIX-Bf-8x200g">SCHMACKOS STIX Bf 8x200g</option>
-                                                <option value="SCHMACKOS-BBQ-Rwhde-Chips-7x70g">SCHMACKOS BBQ Rwhde Chips 7x70g</option>
-                                                <option value="SCHMACKOS-ChpnChw-LDog-PntBuCk-1pc-15x60g">SCHMACKOS ChpnChw LDog PntBuCk 1pc 15x60g</option>
-                                                <option value="TEMPTATIONS-Tempting-Tuna-6x85g-ANZ">TEMPTATIONS Tempting Tuna 6x85g ANZ</option>
-                                                <option value="TEMPTATIONS-Tasty-Chicken-6x85g-ANZ">TEMPTATIONS Tasty Chicken 6x85g ANZ</option>
-                                                <option value="TEMPTATIONS-Creamy-Dairy-6x85g-ANZ">TEMPTATIONS Creamy Dairy 6x85g ANZ</option>
-                                                <option value="TEMPTATIONS-Hearty-Beef-5x180g-ANZ">TEMPTATIONS Hearty Beef 5x180g ANZ</option>
-                                                <option value="TEMPTATIONS-Hearty-Beef-6x85g-ANZ">TEMPTATIONS Hearty Beef 6x85g ANZ</option>
-                                                <option value="TEMPTATIONS-Seafood-Medley-5x180g-ANZ">TEMPTATIONS Seafood Medley 5x180g ANZ</option>
-                                                <option value="TEMPTATIONS-Seafood-Medley-6x85g-ANZ">TEMPTATIONS Seafood Medley 6x85g ANZ</option>
-                                                <option value="TEMPTATIONS-Tantalising-Turkey-6x85g-ANZ">TEMPTATIONS Tantalising Turkey 6x85g ANZ</option>
-                                                <option value="TEMPTATIONS-Tasty-Chicken-5x180g-ANZ">TEMPTATIONS Tasty Chicken 5x180g ANZ</option>
-                                                <option value="TEMPTATIONS-Tasty-Chicken-5x350g-ANZ">TEMPTATIONS Tasty Chicken 5x350g ANZ</option>
+                                                <option value="SCHMACKOS-BBQ-Drmstck-7x5piece">SCHMACKOS BBQ Drmstck
+                                                    7x5piece
+                                                </option>
+                                                <option value="SCHMACKOS-ChpnChw-LDog-Bf-1pc-15x60g">SCHMACKOS ChpnChw
+                                                    LDog
+                                                    Bf 1pc 15x60g
+                                                </option>
+                                                <option value="SCHMACKOS-STRAPZ-Ck-8x200g">SCHMACKOS STRAPZ Ck 8x200g
+                                                </option>
+                                                <option value="SCHMACKOS-STRAPZ-Bf-8x200g">SCHMACKOS STRAPZ Bf 8x200g
+                                                </option>
+                                                <option value="SCHMACKOS-STRAPZ-Bf-3x1kg">SCHMACKOS STRAPZ Bf 3x1kg
+                                                </option>
+                                                <option value="SCHMACKOS-STRAPZ-Bf-3x1kg">SCHMACKOS STRAPZ Bf 3x1kg
+                                                </option>
+                                                <option value="SCHMACKOS-STRAPZ-Lv-8x200g">SCHMACKOS STRAPZ Lv 8x200g
+                                                </option>
+                                                <option value="SCHMACKOS-STRAPZ-BBQ-Lb-8x200g">SCHMACKOS STRAPZ BBQ Lb
+                                                    8x200g
+                                                </option>
+                                                <option value="SCHMACKOS-STIX-Bf-4x500g">SCHMACKOS STIX Bf 4x500g
+                                                </option>
+                                                <option value="SCHMACKOS-STIX-Bf-8x200g">SCHMACKOS STIX Bf 8x200g
+                                                </option>
+                                                <option value="SCHMACKOS-BBQ-Rwhde-Chips-7x70g">SCHMACKOS BBQ Rwhde
+                                                    Chips
+                                                    7x70g
+                                                </option>
+                                                <option value="SCHMACKOS-ChpnChw-LDog-PntBuCk-1pc-15x60g">SCHMACKOS
+                                                    ChpnChw
+                                                    LDog PntBuCk 1pc 15x60g
+                                                </option>
+                                                <option value="TEMPTATIONS-Tempting-Tuna-6x85g-ANZ">TEMPTATIONS Tempting
+                                                    Tuna 6x85g ANZ
+                                                </option>
+                                                <option value="TEMPTATIONS-Tasty-Chicken-6x85g-ANZ">TEMPTATIONS Tasty
+                                                    Chicken 6x85g ANZ
+                                                </option>
+                                                <option value="TEMPTATIONS-Creamy-Dairy-6x85g-ANZ">TEMPTATIONS Creamy
+                                                    Dairy
+                                                    6x85g ANZ
+                                                </option>
+                                                <option value="TEMPTATIONS-Hearty-Beef-5x180g-ANZ">TEMPTATIONS Hearty
+                                                    Beef
+                                                    5x180g ANZ
+                                                </option>
+                                                <option value="TEMPTATIONS-Hearty-Beef-6x85g-ANZ">TEMPTATIONS Hearty
+                                                    Beef
+                                                    6x85g ANZ
+                                                </option>
+                                                <option value="TEMPTATIONS-Seafood-Medley-5x180g-ANZ">TEMPTATIONS
+                                                    Seafood
+                                                    Medley 5x180g ANZ
+                                                </option>
+                                                <option value="TEMPTATIONS-Seafood-Medley-6x85g-ANZ">TEMPTATIONS Seafood
+                                                    Medley 6x85g ANZ
+                                                </option>
+                                                <option value="TEMPTATIONS-Tantalising-Turkey-6x85g-ANZ">TEMPTATIONS
+                                                    Tantalising Turkey 6x85g ANZ
+                                                </option>
+                                                <option value="TEMPTATIONS-Tasty-Chicken-5x180g-ANZ">TEMPTATIONS Tasty
+                                                    Chicken 5x180g ANZ
+                                                </option>
+                                                <option value="TEMPTATIONS-Tasty-Chicken-5x350g-ANZ">TEMPTATIONS Tasty
+                                                    Chicken 5x350g ANZ
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -256,7 +332,7 @@ function Entry(props) {
                                                 id="email"
                                                 name='email'
                                                 aria-describedby="emailHelp"
-                                                placeholder="Enter email *"
+                                                placeholder="Email Address *"
                                                 required
                                                 onChange={(e) => setFormData({...formData, email: e.target.value})}
                                             />
@@ -272,9 +348,12 @@ function Entry(props) {
                                                 id="transactionId"
                                                 name='transactionId'
                                                 aria-describedby="transactionIdHelp"
-                                                placeholder="Enter Transaction Id *"
+                                                placeholder="Receipt number *"
                                                 required
-                                                onChange={(e) => setFormData({...formData, transactionId: e.target.value})}
+                                                onChange={(e) => setFormData({
+                                                    ...formData,
+                                                    transactionId: e.target.value
+                                                })}
                                             />
                                         </div>
                                     </div>
@@ -294,7 +373,8 @@ function Entry(props) {
                                         />
                                         <label className="form-check-label" htmlFor="age"
                                         >I am 18 years of age or older, and I have read and accept
-                                            the <a href="terms" target="_blank"><u>Terms & Conditions</u></a> and the <a href="https://www.mars.com/privacy" target="_blank"><u>Privacy
+                                            the <a href="terms" target="_blank"><u>Terms & Conditions</u></a> and the <a
+                                                href="https://www.mars.com/privacy" target="_blank"><u>Privacy
                                                 Policy</u></a>.
                                         </label>
                                     </div>
@@ -339,26 +419,29 @@ function Entry(props) {
                                             and its affiliates collects, uses and may disclose your personal
                                             information.
                                             You can also discover how to contact us with your privacy questions, and
-                                            exercise your privacy rights, via the <a href="https://www.mars.com/privacy" target="_blank"><u>Mars Privacy
+                                            exercise your privacy rights, via the <a href="https://www.mars.com/privacy"
+                                                                                     target="_blank"><u>Mars Privacy
                                                     Statement</u></a>.</span>
                                         </label>
                                     </div>
                                 </div>
                             </div>
-                            <button disabled={!recaptchaState} onClick={handleSubmit}>Submit</button>
+
                             <div id="captcha">
                                 <ReCAPTCHA
                                     sitekey="6Lce4fEeAAAAAASrWGOTC3i2m23kI7UHxRuvzz3F"
                                     onChange={() => setRecaptcha(!recaptchaState)}
                                 />
                             </div>
-
+                            <button disabled={!recaptchaState} onClick={handleSubmit}>Submit</button>
                         </form>
                         <p className="text-center">
-                            *T&Cs apply, schmackos.com.au/goldenegg. Open to AU residents 18+. Starts 12:01am AEST 23.03.22.
+                            *T&Cs apply, schmackos.com.au/goldenegg. Open to AU residents 18+. Starts 12:01am AEST
+                            23.03.22.
                             Ends 11:59pm AEST 19.04.22. To enter, purchase qualifying product, complete entry form &
                             upload receipt for your chance to win. Max 2 entries per day. 10 x $1000 Digital VISA Gift
-                            Cards. Total prize pool up to $10,000. Winners listed on website on the 26.04.22. Mars Australia
+                            Cards. Total prize pool up to $10,000. Winners listed on website on the 26.04.22. Mars
+                            Australia
                             Pty Ltd trading as Mars Petcare Australia (ABN 48 008 454 313) of Petcare Place, Wodonga VIC
                             3690. NSW; TP/01302 ACT; TP 21/02279 SA; T21/2053
                         </p>
