@@ -25,7 +25,7 @@
             -webkit-animation: spin 1s ease-in-out infinite;
             position: fixed;
             top: 50%;
-            left: 50%;
+            left: 46%;
         }
 
         @keyframes spin {

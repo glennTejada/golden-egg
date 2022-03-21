@@ -311,6 +311,11 @@ function Entry(props) {
                                             I understand that I must retain receipt(s) as proof of purchase.
                                         </label>
                                     </div>
+                                    <div className="align-form">
+                                        We’d like to keep you and your pet up to date with
+                                        exciting promotions, pet care tips and info & new product
+                                        developments from Mars Petcare and its affiliates.
+                                    </div>
                                     <div className="form-check">
                                         <input
                                             type="checkbox"
@@ -321,25 +326,21 @@ function Entry(props) {
                                                 setFormData({...formData, affiliates: e.target.checked})
                                             }}
                                         />
-                                        <label className="form-check-label" htmlFor="affiliates"
-                                        >We’d like to keep you and your pet up to date with
-                                            exciting promotions, pet care tips and info & new product
-                                            developments from Mars Petcare and its affiliates. <br/>
-
-                                            I am over 18+ years old and I consent to receive marketing and promotional
-                                            materials from Mars Petcare and its affiliates. <br/>
-
-                                            I understand that I may change these preferences at any
+                                        <label className="form-check-label" htmlFor="affiliates">
+                                            <span className="consent-spacer">I am over 18+ years old and I consent to receive marketing and promotional
+                                                materials from Mars Petcare and its affiliates.</span>
+                                            <span className="spacer"></span>
+                                            <span className="consent-spacer">I understand that I may change these preferences at any
                                             time by clicking the unsubscribe link in any communication
-                                            I receive. <br/>
-
-                                            We may use your personal information for research to enhance our product and
+                                            I receive.</span>
+                                            <span className="spacer"></span>
+                                            <span className="consent-spacer">We may use your personal information for research to enhance our product and
                                             service offerings. You can find out how and for what purposes Mars Petcare
                                             and its affiliates collects, uses and may disclose your personal
                                             information.
                                             You can also discover how to contact us with your privacy questions, and
                                             exercise your privacy rights, via the <a href="https://www.mars.com/privacy" target="_blank"><u>Mars Privacy
-                                                Statement</u></a>.
+                                                    Statement</u></a>.</span>
                                         </label>
                                     </div>
                                 </div>

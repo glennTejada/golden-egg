@@ -5884,6 +5884,9 @@ function Entry(props) {
                       htmlFor: "proof",
                       children: "I understand that I must retain receipt(s) as proof of purchase."
                     })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    className: "align-form",
+                    children: "We\u2019d like to keep you and your pet up to date with exciting promotions, pet care tips and info & new product developments from Mars Petcare and its affiliates."
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                     className: "form-check",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
@@ -5899,13 +5902,26 @@ function Entry(props) {
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("label", {
                       className: "form-check-label",
                       htmlFor: "affiliates",
-                      children: ["We\u2019d like to keep you and your pet up to date with exciting promotions, pet care tips and info & new product developments from Mars Petcare and its affiliates. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), "I am over 18+ years old and I consent to receive marketing and promotional materials from Mars Petcare and its affiliates. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), "I understand that I may change these preferences at any time by clicking the unsubscribe link in any communication I receive. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), "We may use your personal information for research to enhance our product and service offerings. You can find out how and for what purposes Mars Petcare and its affiliates collects, uses and may disclose your personal information. You can also discover how to contact us with your privacy questions, and exercise your privacy rights, via the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-                        href: "https://www.mars.com/privacy",
-                        target: "_blank",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("u", {
-                          children: "Mars Privacy Statement"
-                        })
-                      }), "."]
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                        className: "consent-spacer",
+                        children: "I am over 18+ years old and I consent to receive marketing and promotional materials from Mars Petcare and its affiliates."
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                        className: "spacer"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                        className: "consent-spacer",
+                        children: "I understand that I may change these preferences at any time by clicking the unsubscribe link in any communication I receive."
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                        className: "spacer"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+                        className: "consent-spacer",
+                        children: ["We may use your personal information for research to enhance our product and service offerings. You can find out how and for what purposes Mars Petcare and its affiliates collects, uses and may disclose your personal information. You can also discover how to contact us with your privacy questions, and exercise your privacy rights, via the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                          href: "https://www.mars.com/privacy",
+                          target: "_blank",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("u", {
+                            children: "Mars Privacy Statement"
+                          })
+                        }), "."]
+                      })]
                     })]
                   })]
                 })
@@ -6014,11 +6030,13 @@ function Home() {
       className: "banner-main-area",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
         className: "mobile-hide",
-        src: "img/golden-egg/homePage.png",
+        src: "img/golden-egg/homePage.webp",
+        type: "image/webp",
         alt: ""
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
         className: "mobile-show",
-        src: "img/golden-egg/home-mobile.png",
+        src: "img/golden-egg/home-mobile.webp",
+        type: "image/webp",
         alt: ""
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
