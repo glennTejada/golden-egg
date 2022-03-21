@@ -38,7 +38,7 @@ function Entry(props) {
     const handleFileUpload = (e) => {
         const {name, files} = e.target;
 
-        document.getElementById("receipt_image_name_holder").innerHTML = files[0]?.name ? files[0]?.name : 'Upload Receipt*';
+        document.getElementById("receipt_image_name_holder").innerHTML = files[0]?.name ? files[0]?.name : 'Upload Receipt *';
 
         setFormData(prevState => ({
             ...prevState, [name]: files[0]
@@ -116,7 +116,7 @@ function Entry(props) {
                 <div className="about-inner-wrap entry-page">
                     <h2>
                         WIN 1 of 10 x $1000 <br/>
-                        Digital Visa Gift Cards*
+                        Digital Visa Gift <span className="asterisk">Cards</span>
                     </h2>
                     <h4>
                         To enter, purchase any TEMPTATIONS™ or SCHMACKOS™ product from any
@@ -135,7 +135,7 @@ function Entry(props) {
                                                 className="form-control"
                                                 id="firstname"
                                                 name='firstname'
-                                                placeholder="First Name*"
+                                                placeholder="First Name *"
                                                 required
                                                 onChange={(e) => setFormData({
                                                     ...formData, firstname: e.target.value
@@ -152,7 +152,7 @@ function Entry(props) {
                                                 className="form-control"
                                                 id="lastname"
                                                 name='lastname'
-                                                placeholder="Last Name*"
+                                                placeholder="Last Name *"
                                                 required
                                                 onChange={(e) => setFormData({
                                                     ...formData, lastname: e.target.value
@@ -170,7 +170,7 @@ function Entry(props) {
                                                 className="form-control"
                                                 id="suburb"
                                                 name='suburb'
-                                                placeholder="Suburb*"
+                                                placeholder="Suburb *"
                                                 required
                                                 onChange={(e) => setFormData({...formData, suburb: e.target.value})}
                                             />
@@ -185,7 +185,7 @@ function Entry(props) {
                                                 className="form-control"
                                                 id="number"
                                                 name='number'
-                                                placeholder="Phone Number*"
+                                                placeholder="Phone Number *"
                                                 required
                                                 onChange={(e) => setFormData({...formData, number: e.target.value})}
                                             />
@@ -197,7 +197,7 @@ function Entry(props) {
                                         <div className="form-group">
                                             <select className="form-control" id="product" name='product' required
                                                 onChange={handleChange} defaultValue={'DEFAULT'}>
-                                                <option value="DEFAULT" disabled hidden>Select Product*</option>
+                                                <option value="DEFAULT" disabled hidden>Select Product *</option>
                                                 <option value="SCHMACKOS-STRAPZ-Bf-4x500g">SCHMACKOS STRAPZ Bf 4x500g</option>
                                                 <option value="SCHMACKOS-STRAPZ-3VrtyPk-4x500g">SCHMACKOS STRAPZ 3VrtyPk 4x500g</option>
                                                 <option value="SCHMACKOS-STRAPZ-Ck-4x500g">SCHMACKOS STRAPZ Ck 4x500g</option>
@@ -233,7 +233,7 @@ function Entry(props) {
                                     <div className="input-single-form-item">
                                         <div className="form-group-input-image">
                                             <label htmlFor="form-control-image" className="form-control">
-                                                <span id="receipt_image_name_holder">Upload Receipt*</span>
+                                                <span id="receipt_image_name_holder">Upload Receipt *</span>
                                                 <img src="img/golden-egg/camera.png" alt=""/>
                                             </label>
                                             <input
@@ -256,7 +256,7 @@ function Entry(props) {
                                                 id="email"
                                                 name='email'
                                                 aria-describedby="emailHelp"
-                                                placeholder="Enter email*"
+                                                placeholder="Enter email *"
                                                 required
                                                 onChange={(e) => setFormData({...formData, email: e.target.value})}
                                             />
@@ -272,7 +272,7 @@ function Entry(props) {
                                                 id="transactionId"
                                                 name='transactionId'
                                                 aria-describedby="transactionIdHelp"
-                                                placeholder="Enter Transaction Id*"
+                                                placeholder="Enter Transaction Id *"
                                                 required
                                                 onChange={(e) => setFormData({...formData, transactionId: e.target.value})}
                                             />

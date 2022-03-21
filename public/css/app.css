@@ -11532,3 +11532,9 @@ span.spacer {
   height: 10px;
   display: block;
 }
+
+span.asterisk:after {
+  content: "*";
+  position: relative;
+  top: -4px;
+}

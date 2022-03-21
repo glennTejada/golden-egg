@@ -5476,7 +5476,7 @@ function Entry(props) {
     var _e$target2 = e.target,
         name = _e$target2.name,
         files = _e$target2.files;
-    document.getElementById("receipt_image_name_holder").innerHTML = (_files$ = files[0]) !== null && _files$ !== void 0 && _files$.name ? (_files$2 = files[0]) === null || _files$2 === void 0 ? void 0 : _files$2.name : 'Upload Receipt*';
+    document.getElementById("receipt_image_name_holder").innerHTML = (_files$ = files[0]) !== null && _files$ !== void 0 && _files$.name ? (_files$2 = files[0]) === null || _files$2 === void 0 ? void 0 : _files$2.name : 'Upload Receipt *';
     setFormData(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, _defineProperty({}, name, files[0]));
     });
@@ -5563,7 +5563,10 @@ function Entry(props) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "about-inner-wrap entry-page",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
-            children: ["WIN 1 of 10 x $1000 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), "Digital Visa Gift Cards*"]
+            children: ["WIN 1 of 10 x $1000 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), "Digital Visa Gift ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: "asterisk",
+              children: "Cards"
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
             children: "To enter, purchase any TEMPTATIONS\u2122 or SCHMACKOS\u2122 product from any participating Woolworths store before 19/04/2022 and complete the entry form below to discover if you are an instant winner."
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -5582,7 +5585,7 @@ function Entry(props) {
                         className: "form-control",
                         id: "firstname",
                         name: "firstname",
-                        placeholder: "First Name*",
+                        placeholder: "First Name *",
                         required: true,
                         onChange: function onChange(e) {
                           return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -5603,7 +5606,7 @@ function Entry(props) {
                         className: "form-control",
                         id: "lastname",
                         name: "lastname",
-                        placeholder: "Last Name*",
+                        placeholder: "Last Name *",
                         required: true,
                         onChange: function onChange(e) {
                           return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -5624,7 +5627,7 @@ function Entry(props) {
                         className: "form-control",
                         id: "suburb",
                         name: "suburb",
-                        placeholder: "Suburb*",
+                        placeholder: "Suburb *",
                         required: true,
                         onChange: function onChange(e) {
                           return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -5645,7 +5648,7 @@ function Entry(props) {
                         className: "form-control",
                         id: "number",
                         name: "number",
-                        placeholder: "Phone Number*",
+                        placeholder: "Phone Number *",
                         required: true,
                         onChange: function onChange(e) {
                           return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -5672,7 +5675,7 @@ function Entry(props) {
                           value: "DEFAULT",
                           disabled: true,
                           hidden: true,
-                          children: "Select Product*"
+                          children: "Select Product *"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                           value: "SCHMACKOS-STRAPZ-Bf-4x500g",
                           children: "SCHMACKOS STRAPZ Bf 4x500g"
@@ -5769,7 +5772,7 @@ function Entry(props) {
                         className: "form-control",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                           id: "receipt_image_name_holder",
-                          children: "Upload Receipt*"
+                          children: "Upload Receipt *"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
                           src: "img/golden-egg/camera.png",
                           alt: ""
@@ -5796,7 +5799,7 @@ function Entry(props) {
                         id: "email",
                         name: "email",
                         "aria-describedby": "emailHelp",
-                        placeholder: "Enter email*",
+                        placeholder: "Enter email *",
                         required: true,
                         onChange: function onChange(e) {
                           return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -5818,7 +5821,7 @@ function Entry(props) {
                         id: "transactionId",
                         name: "transactionId",
                         "aria-describedby": "transactionIdHelp",
-                        placeholder: "Enter Transaction Id*",
+                        placeholder: "Enter Transaction Id *",
                         required: true,
                         onChange: function onChange(e) {
                           return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
