@@ -5457,6 +5457,10 @@ function Entry(props) {
 
 
   var handleChange = function handleChange(e) {
+    if (e.target.name === 'product') {
+      e.target.classList.add('text-black');
+    }
+
     var _e$target = e.target,
         name = _e$target.name,
         value = _e$target.value;
@@ -5480,7 +5484,8 @@ function Entry(props) {
 
 
   var handleSubmit = function handleSubmit(e) {
-    e.preventDefault(); // check any of state values are empty
+    e.preventDefault();
+    console.log(formData); // check any of state values are empty
     // todo: add form validation
 
     if (formData.firstname === '' || formData.lastname === '' || formData.suburb === '' || formData.number === '' || formData.product === '' || formData.receipt === '' || formData.receipt === undefined || formData.transactionId === '' || formData.email === '' || formData.age === false || formData.proof === false) {
@@ -5536,17 +5541,6 @@ function Entry(props) {
         react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.error("Unknown error occurred!");
       }
     });
-  };
-
-  var verifyCallback = function verifyCallback(response) {
-    console.log(response);
-
-    if (response) {
-      /*setRecaptcha(prevState => ({
-          ...prevState, recaptcha: true
-      }));*/
-      console.log('recaptcha verified');
-    }
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -5667,18 +5661,100 @@ function Entry(props) {
                     className: "input-single-form-item",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                       className: "form-group",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-                        type: "text",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("select", {
                         className: "form-control",
                         id: "product",
                         name: "product",
-                        placeholder: "Product*",
                         required: true,
-                        onChange: function onChange(e) {
-                          return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                            product: e.target.value
-                          }));
-                        }
+                        onChange: handleChange,
+                        defaultValue: 'DEFAULT',
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "DEFAULT",
+                          disabled: true,
+                          hidden: true,
+                          children: "Select Product*"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STRAPZ-Bf-4x500g",
+                          children: "SCHMACKOS STRAPZ Bf 4x500g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STRAPZ-3VrtyPk-4x500g",
+                          children: "SCHMACKOS STRAPZ 3VrtyPk 4x500g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STRAPZ-Ck-4x500g",
+                          children: "SCHMACKOS STRAPZ Ck 4x500g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STRAPZ-Lv-4x500g",
+                          children: "SCHMACKOS STRAPZ Lv 4x500g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-MBN-3x737g",
+                          children: "SCHMACKOS MBN 3x737g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-BBQ-Drmstck-7x5piece",
+                          children: "SCHMACKOS BBQ Drmstck 7x5piece"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-ChpnChw-LDog-Bf-1pc-15x60g",
+                          children: "SCHMACKOS ChpnChw LDog Bf 1pc 15x60g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STRAPZ-Ck-8x200g",
+                          children: "SCHMACKOS STRAPZ Ck 8x200g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STRAPZ-Bf-8x200g",
+                          children: "SCHMACKOS STRAPZ Bf 8x200g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STRAPZ-Bf-3x1kg",
+                          children: "SCHMACKOS STRAPZ Bf 3x1kg"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STRAPZ-Bf-3x1kg",
+                          children: "SCHMACKOS STRAPZ Bf 3x1kg"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STRAPZ-Lv-8x200g",
+                          children: "SCHMACKOS STRAPZ Lv 8x200g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STRAPZ-BBQ-Lb-8x200g",
+                          children: "SCHMACKOS STRAPZ BBQ Lb 8x200g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STIX-Bf-4x500g",
+                          children: "SCHMACKOS STIX Bf 4x500g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-STIX-Bf-8x200g",
+                          children: "SCHMACKOS STIX Bf 8x200g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-BBQ-Rwhde-Chips-7x70g",
+                          children: "SCHMACKOS BBQ Rwhde Chips 7x70g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "SCHMACKOS-ChpnChw-LDog-PntBuCk-1pc-15x60g",
+                          children: "SCHMACKOS ChpnChw LDog PntBuCk 1pc 15x60g"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "TEMPTATIONS-Tempting-Tuna-6x85g-ANZ",
+                          children: "TEMPTATIONS Tempting Tuna 6x85g ANZ"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "TEMPTATIONS-Tasty-Chicken-6x85g-ANZ",
+                          children: "TEMPTATIONS Tasty Chicken 6x85g ANZ"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "TEMPTATIONS-Creamy-Dairy-6x85g-ANZ",
+                          children: "TEMPTATIONS Creamy Dairy 6x85g ANZ"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "TEMPTATIONS-Hearty-Beef-5x180g-ANZ",
+                          children: "TEMPTATIONS Hearty Beef 5x180g ANZ"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "TEMPTATIONS-Hearty-Beef-6x85g-ANZ",
+                          children: "TEMPTATIONS Hearty Beef 6x85g ANZ"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "TEMPTATIONS-Seafood-Medley-5x180g-ANZ",
+                          children: "TEMPTATIONS Seafood Medley 5x180g ANZ"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "TEMPTATIONS-Seafood-Medley-6x85g-ANZ",
+                          children: "TEMPTATIONS Seafood Medley 6x85g ANZ"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "TEMPTATIONS-Tantalising-Turkey-6x85g-ANZ",
+                          children: "TEMPTATIONS Tantalising Turkey 6x85g ANZ"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "TEMPTATIONS-Tasty-Chicken-5x180g-ANZ",
+                          children: "TEMPTATIONS Tasty Chicken 5x180g ANZ"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                          value: "TEMPTATIONS-Tasty-Chicken-5x350g-ANZ",
+                          children: "TEMPTATIONS Tasty Chicken 5x350g ANZ"
+                        })]
                       })
                     })
                   })

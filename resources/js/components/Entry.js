@@ -25,6 +25,9 @@ function Entry(props) {
 
     // todo: add form input validation
     const handleChange = (e) => {
+        if (e.target.name === 'product'){
+            e.target.classList.add('text-black');
+        }
         const {name, value} = e.target;
         setFormData(prevState => ({
             ...prevState, [name]: value
@@ -45,6 +48,8 @@ function Entry(props) {
     // handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        console.log(formData);
 
         // check any of state values are empty
         // todo: add form validation
@@ -190,17 +195,37 @@ function Entry(props) {
                                 <div className="col-md-6">
                                     <div className="input-single-form-item">
                                         <div className="form-group">
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                id="product"
-                                                name='product'
-                                                placeholder="Product*"
-                                                required
-                                                onChange={(e) => setFormData({
-                                                    ...formData, product: e.target.value
-                                                })}
-                                            />
+                                            <select className="form-control" id="product" name='product' required
+                                                onChange={handleChange} defaultValue={'DEFAULT'}>
+                                                <option value="DEFAULT" disabled hidden>Select Product*</option>
+                                                <option value="SCHMACKOS-STRAPZ-Bf-4x500g">SCHMACKOS STRAPZ Bf 4x500g</option>
+                                                <option value="SCHMACKOS-STRAPZ-3VrtyPk-4x500g">SCHMACKOS STRAPZ 3VrtyPk 4x500g</option>
+                                                <option value="SCHMACKOS-STRAPZ-Ck-4x500g">SCHMACKOS STRAPZ Ck 4x500g</option>
+                                                <option value="SCHMACKOS-STRAPZ-Lv-4x500g">SCHMACKOS STRAPZ Lv 4x500g</option>
+                                                <option value="SCHMACKOS-MBN-3x737g">SCHMACKOS MBN 3x737g</option>
+                                                <option value="SCHMACKOS-BBQ-Drmstck-7x5piece">SCHMACKOS BBQ Drmstck 7x5piece</option>
+                                                <option value="SCHMACKOS-ChpnChw-LDog-Bf-1pc-15x60g">SCHMACKOS ChpnChw LDog Bf 1pc 15x60g</option>
+                                                <option value="SCHMACKOS-STRAPZ-Ck-8x200g">SCHMACKOS STRAPZ Ck 8x200g</option>
+                                                <option value="SCHMACKOS-STRAPZ-Bf-8x200g">SCHMACKOS STRAPZ Bf 8x200g</option>
+                                                <option value="SCHMACKOS-STRAPZ-Bf-3x1kg">SCHMACKOS STRAPZ Bf 3x1kg</option>
+                                                <option value="SCHMACKOS-STRAPZ-Bf-3x1kg">SCHMACKOS STRAPZ Bf 3x1kg</option>
+                                                <option value="SCHMACKOS-STRAPZ-Lv-8x200g">SCHMACKOS STRAPZ Lv 8x200g</option>
+                                                <option value="SCHMACKOS-STRAPZ-BBQ-Lb-8x200g">SCHMACKOS STRAPZ BBQ Lb 8x200g</option>
+                                                <option value="SCHMACKOS-STIX-Bf-4x500g">SCHMACKOS STIX Bf 4x500g</option>
+                                                <option value="SCHMACKOS-STIX-Bf-8x200g">SCHMACKOS STIX Bf 8x200g</option>
+                                                <option value="SCHMACKOS-BBQ-Rwhde-Chips-7x70g">SCHMACKOS BBQ Rwhde Chips 7x70g</option>
+                                                <option value="SCHMACKOS-ChpnChw-LDog-PntBuCk-1pc-15x60g">SCHMACKOS ChpnChw LDog PntBuCk 1pc 15x60g</option>
+                                                <option value="TEMPTATIONS-Tempting-Tuna-6x85g-ANZ">TEMPTATIONS Tempting Tuna 6x85g ANZ</option>
+                                                <option value="TEMPTATIONS-Tasty-Chicken-6x85g-ANZ">TEMPTATIONS Tasty Chicken 6x85g ANZ</option>
+                                                <option value="TEMPTATIONS-Creamy-Dairy-6x85g-ANZ">TEMPTATIONS Creamy Dairy 6x85g ANZ</option>
+                                                <option value="TEMPTATIONS-Hearty-Beef-5x180g-ANZ">TEMPTATIONS Hearty Beef 5x180g ANZ</option>
+                                                <option value="TEMPTATIONS-Hearty-Beef-6x85g-ANZ">TEMPTATIONS Hearty Beef 6x85g ANZ</option>
+                                                <option value="TEMPTATIONS-Seafood-Medley-5x180g-ANZ">TEMPTATIONS Seafood Medley 5x180g ANZ</option>
+                                                <option value="TEMPTATIONS-Seafood-Medley-6x85g-ANZ">TEMPTATIONS Seafood Medley 6x85g ANZ</option>
+                                                <option value="TEMPTATIONS-Tantalising-Turkey-6x85g-ANZ">TEMPTATIONS Tantalising Turkey 6x85g ANZ</option>
+                                                <option value="TEMPTATIONS-Tasty-Chicken-5x180g-ANZ">TEMPTATIONS Tasty Chicken 5x180g ANZ</option>
+                                                <option value="TEMPTATIONS-Tasty-Chicken-5x350g-ANZ">TEMPTATIONS Tasty Chicken 5x350g ANZ</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

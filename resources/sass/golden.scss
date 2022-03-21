@@ -47,7 +47,7 @@ section.about-main-area-wrap {
     align-items: center;
     margin: auto auto 14px;
 
-    &:disabled{
+    &:disabled {
         background: rgba(198, 64, 73, 0.62);
     }
 }
@@ -128,7 +128,7 @@ label.form-check-label {
     background-color: #f8fafc;
     margin: 3px 0 0 5px;
 
-    a{
+    a {
         color: #535353;
     }
 }
@@ -198,7 +198,7 @@ small.form-text.text-muted {
         color: #535353;
         font-size: 14px;
 
-        a{
+        a {
             color: #535353;
         }
     }
@@ -221,8 +221,12 @@ a {
     text-decoration: none !important;
 }
 
-#captcha{
+#captcha {
     display: flex;
     justify-content: center;
     margin: auto auto 14px;
+}
+
+select#product {
+    color: gray;
 }

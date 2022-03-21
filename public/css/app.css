@@ -11517,3 +11517,7 @@ a {
   justify-content: center;
   margin: auto auto 14px;
 }
+
+select#product {
+  color: gray;
+}
