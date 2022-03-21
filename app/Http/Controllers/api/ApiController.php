@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ApiController extends Controller
 {
@@ -87,5 +88,18 @@ class ApiController extends Controller
         $response = $client->request("POST", "https://pistol-01-yvwa6gxw.instantwinapi.com/api/status", ['form_params' => $data]);
         $result = json_decode($response->getBody());
         return response()->json($result);
+    }
+
+    public function send_email(){
+        $name = "Jhon";
+        $email = "Glenntejada2021@mailfence.com";
+        $data = array('name'=>$name, "body" => "Your win!");
+
+        Mail::send('emails.mail', $data, function($message) use ($name, $email) {
+            $message->to($email, $name)
+                ->subject('Winner');
+        });
+        return response()->json("mail sended");
+
     }
 }
