@@ -6008,8 +6008,7 @@ function Footer() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "footer-inner-wrap",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-          href: "https://www.mars.com/contact-us",
-          target: "_blank",
+          href: "mailto:support@golden-egg.com.au",
           children: "CONTACT"
         }), "|", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
           href: "https://www.mars.com/privacy",
